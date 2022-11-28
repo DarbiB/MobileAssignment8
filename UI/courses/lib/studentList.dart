@@ -28,6 +28,8 @@ class _studentListState extends State<studentList> {
     widget.api.getStudents().then((data) {
       setState(() {
         students = data;
+        students.sort(
+            (a, b) => a['fname'].toString().compareTo(b['fname'].toString()));
         _dbLoaded = true;
       });
     });
